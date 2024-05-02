@@ -12,11 +12,17 @@ public class EditContactScreen : BaseScreen
     [SerializeField] TMP_InputField addressInputFild;
     [SerializeField] Button EditContactButton;
     [SerializeField] Button RemoveContactButton;
+    [SerializeField] Button BackButton;
+
     DataManager dataManager = new DataManager();
    
     private void Start() {
         EditContactButton.onClick.AddListener(EditContact);
         RemoveContactButton.onClick.AddListener(RemoveContact);
+        BackButton.onClick.AddListener(OnBack);
+    }
+    void OnBack(){
+        UiManager.instance.SwitchScreen(GameScreens.Home);
     }
     public override void ActivateScreen()
     {

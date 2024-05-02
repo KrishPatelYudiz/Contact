@@ -27,6 +27,8 @@ public class Contacts : MonoBehaviour
         UiManager.instance.SwitchScreen(GameScreens.EditContact);
     }
     void OnCall() {
-        //? calling Pad
+        string phoneNumber = Number.text;
+        string phoneNumberWithPrefix = "tel://" + phoneNumber;
+        Application.OpenURL(phoneNumberWithPrefix);
     }
 }

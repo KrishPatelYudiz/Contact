@@ -9,6 +9,7 @@ public class LoginScreen : BaseScreen
 {
     [SerializeField] TMP_InputField emailInputFild;
     [SerializeField] TMP_InputField PasswordInputFild;
+    [SerializeField] Text ErrorTextFild;
     [SerializeField] Button LoginButton;
     [SerializeField] Button SingupButton;
     DataManager dataManager = new DataManager();
@@ -26,7 +27,7 @@ public class LoginScreen : BaseScreen
             UiManager.instance.SwitchScreen(GameScreens.Home);
         }else
         {
-            
+            ErrorTextFild.text="";
             base.ActivateScreen();
         }
     }
@@ -37,7 +38,9 @@ public class LoginScreen : BaseScreen
         {
             UserData.user = user;
             UiManager.instance.SwitchScreen(GameScreens.Home);
-        } 
+        }else{
+            ErrorTextFild.text = "Email or Password is wrong";
+        }
         emailInputFild.text="";
         PasswordInputFild.text="";
     }
